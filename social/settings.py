@@ -30,6 +30,8 @@ ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'accounts.User'
 # Application definition
 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'accounts.backends.EmailAuth',
@@ -127,3 +129,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE', 'pk_test_ZJ9IBqTEfZAME1tOSxDVYrYh')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_TMnXnj2zcAGrVm0hZe2tY7xy')
